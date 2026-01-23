@@ -1,0 +1,27 @@
+Part 1 : The Books Project!
+* This is a basic Project to learn the basics of Fast API. 
+* We have a list of books as given below:
+
+BOOKS = [
+    {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
+    {'title': 'Title Two', 'author': 'Author Two', 'category': 'science'},
+    {'title': 'Title Three', 'author': 'Author Three', 'category': 'history'},
+    {'title': 'Title Four', 'author': 'Author Four', 'category': 'math'},
+    {'title': 'Title Five', 'author': 'Author Five', 'category': 'math'},
+    {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'}
+]
+* Implement CRUD operations on the books.
+
+---Basic code/syntax---
+from fastapi import FastAPI #importing fastapi class
+
+app = FastAPI() #var app is reference to object 
+
+@app.get("/api-endpoint")       #decorator which defines the endpoint and method
+async def first_api():
+    return {"msg":"hello!"}
+
+In api world "%20" means space      --- encoding
+
+#to run app : uvicorn books:app --reload
+#another way to run: fastapi run books.Py 
