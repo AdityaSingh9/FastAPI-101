@@ -1,1 +1,28 @@
+This Project will also be implementation of Book APIs!
+
+Whats new?
+1. Data Validation.
+2. Exception Handling
+3. Status code
+4. Swagger configuration
+5. Python Request Objects
+
+books2.py has just data validation added at put and post Request
+Books3.py has updated code handling the errors and status code at each method level also adding validaion at query and path param level-
+200 - get
+201 - post
+204 - put or delete (no contect)
+
+updated books data: 
+
+BOOKS = [
+    Book(1, 'Computer Science Pro', 'codingwithroby', 'A very nice book!', 5, 2030),
+    Book(2, 'Be Fast with FastAPI', 'codingwithroby', 'A great book!', 5, 2030),
+    Book(3, 'Master Endpoints', 'codingwithroby', 'A awesome book!', 5, 2029),
+    Book(4, 'HP1', 'Author 1', 'Book Description', 2, 2028),
+    Book(5, 'HP2', 'Author 2', 'Book Description', 3, 2027),
+    Book(6, 'HP3', 'Author 3', 'Book Description', 1, 2026)
+]
+
+pydantic module is used for data validation and settings management.
 
