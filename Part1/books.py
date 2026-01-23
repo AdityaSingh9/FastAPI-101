@@ -1,1 +1,86 @@
+from fastapi import FastAPI, Body #importing fastapi class
+
+
+app = FastAPI() #var app is reference to object 
+
+#run : uvicorn books:app --reload
+
+BOOKS = [
+    {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
+    {'title': 'Title Two', 'author': 'Author Two', 'category': 'science'},
+    {'title': 'Title Three', 'author': 'Author Three', 'category': 'history'},
+    {'title': 'Title Four', 'author': 'Author Four', 'category': 'math'},
+    {'title': 'Title Five', 'author': 'Author Five', 'category': 'math'},
+    {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'}
+]
+
+'''Get request implementations'''
+
+@app.get("/books")       #decorator which defines the endpoint and method
+async def read_all_books():
+    return BOOKS
+
+#uri param implementation
+@app.get("/books/{book_title}")      #dynamic path params || uri params in simple words 
+async def read_book(book_title: str ):  #expecting a string | if not string will parse it | if parsing not possible it will throw error
+    for book in BOOKS:      #iterate over all books | can implement better seach too
+        if book.get('title').casefold()==book_title.casefold(): #books is a list of dictionary so iterating over the list and fetching key from the dict using get funcn.
+            return book
+        else:
+            return {"result" : "Book not found"}
+        
+#query param implementation --- basepath/books/?category=science
+@app.get("/books/")
+async def read_books_by_category(category: str):        #automatically understands the query params
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('category').casefold() == category.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
+#get books by author name!
+@app.get("/books/byauthor/")
+async def read_books_byauthor(author: str):        #automatically understands the query params
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('author').casefold() == author.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
+#uri + query implementation :   http://127.0.0.1:8000/books/Author%20One/?category=science
+@app.get("/books/{author_name}/")
+async def read_books_by_author_and_category(author_name: str,category: str):
+    books_to_return = []
+    for book in BOOKS:
+        if book.get('category').casefold() == category.casefold() and book.get('author').casefold() == author_name.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
+
+'''Post request implementations'''
+#create book
+
+@app.post("/books/create_book")
+async def create_book(new_book=Body()):
+    BOOKS.append(new_book)
+
+'''put request implementations'''
+#update book
+
+@app.put("/books/update_book")
+async def update_book(updated_book=Body()):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('title').casefold()==updated_book.get('title').casefold():
+            BOOKS[i] = updated_book
+
+
+'''Delete request implementations'''
+#Delete book
+
+@app.delete("/books/delete_book/{book_title}")
+async def delete_book(book_title : str):
+    for i in range(len(BOOKS)):
+        if BOOKS[i].get('title').casefold()==book_title.casefold():
+            BOOKS.pop(i)
+            break #after poping index changes so we cant continue the loop
 
