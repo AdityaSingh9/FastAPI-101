@@ -10,9 +10,11 @@ But I always wanted to go beyond configuration and actually code the systems beh
 With the rise of AI, getting back to Python became mandatory, not optional.
 FastAPI felt like the perfect bridge — modern backend development today, and a direct gateway to AI and GenAI tomorrow.
 
-Part 1: implementation of crud operations:
-Part 2: advanced concepts applied on part1 like error handling and Data validation and status codes.
+##Part 1: The Books Project! This is a basic Project to learn the basics of Fast API and perform CRUD operation on it.
 
+##Part 2: The Books Project- Advanced! Continuation of Books Project with advanced features like error handling, schema validation and response status code!
+
+##Part 3: Social Media APIs with Postgres DB integration. Connecting to database w/ Python and Database CRUD Operations using Pyscopg2 (Postgres driver).
 
 --------------------------------------------------------------------------------------------
 VIRTUAL ENVIRONMENT SETUP
