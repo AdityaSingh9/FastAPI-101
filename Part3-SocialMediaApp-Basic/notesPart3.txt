@@ -1,0 +1,19 @@
+This is all about Postgres DB integration.
+Use case : Social Media App Example using just postgress driver!
+
+1. Connecting to database w/ Python
+2. Database CRUD
+3. psycopg2 driver 
+
+Postgres driver? eg: psycopg2 or psycopg3.
+    Driver = connector between Python & PostgreSQL 
+
+Psycopg follows the Python DB API 2.0 standard, so its usage is similar to other DB adapters.
+    You connect to a PostgreSQL database using connect(), which returns a connection object.
+    From the connection, you create a cursor to run SQL commands.
+    The cursor is used to:
+        Execute SQL statements (execute(), executemany())
+        Fetch query results (fetchone(), fetchmany(), fetchall())
+        SQL parameters are passed safely using placeholders (%s) to prevent SQL injection.
+    Changes are saved to the database using commit() (or reverted using rollback()).
+    Finally, cursors and connections are closed to free resources.
