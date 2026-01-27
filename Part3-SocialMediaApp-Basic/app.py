@@ -14,7 +14,7 @@ app = FastAPI()     #creates/initializes object of FastAPI class
 while True:
     try:
         #DON'T HARDCODE IN REAL TIME
-        conn = psycopg2.connect(host='localhost',database='postgres',user='postgres',password='Aditya988@',cursor_factory=RealDictCursor)
+        conn = psycopg2.connect(host='HOSTNAME',database='DBNAME',user='USERNAME',password='PASSWORD',cursor_factory=RealDictCursor)
         cursor = conn.cursor()  # exectute the queries using 'cursor' after connecting to the db using 'conn'
         print("Database connection was succesfull!")
         break
