@@ -1,0 +1,13 @@
+Continuation of Social Media APP by replacing postgress driver with ORM 
+Instead of directly sending the sql code , we will send Python code to ORM which will convert it into SQL
+SQLALCHEMY is not very good at changing the DB structure once its created. 
+Alembic can be used to perform DB structure changes like schema or table contraints changes.
+
+Use case : Social Media App Example using ORM | SQLALCHEMY 
+    this helps to perform all DB operations through traditional python code. No more SQL!
+    ORM will convert the python code into SQL and will use the same driver.
+    
+    Earlier approach:   {fastApi} <---SQL----> {DB}
+    ORM approach:   {fastApi} <--python--> {ORM} <--psycopg|sql--> {DB}
+
+
