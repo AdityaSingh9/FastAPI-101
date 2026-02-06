@@ -1,0 +1,37 @@
+Continuation of adv Social Media APP 
+
+Aim: To build the final app
+
+1. Enable User interactions with login and register features!
+2. Cleanup code and use pydantic for req/response schema 
+3. Use SQLALCHEMY for DB interactions
+4. hash the passwords
+5. create routes
+6. jwt authentication [header+payload+signature]
+below describes how api server provides token!
+----------------------------------------------------------------
+CLIENT                    API SERVER                  DATABASE
+    (Web Browser)              (Python Backend)             (Storage)
+          |                           |                         |
+          |  POST /login              |                         |
+          |  {email, password}        |                         |
+          |-------------------------->|                         |
+          |                           |   Find user by email    |
+          |                           |------------------------>|
+          |                           |                         |
+          |                           |   User {hashed_pass}    |
+          |                           |<------------------------|
+          |                           |                         |
+          |                    [ PROCESS ]                      |
+          |                    1. Take 'password'               |
+          |                    2. Apply Hash function           |
+          |                    3. Compare results:              |
+          |                                                     |
+          |                    New Hash  ==  Stored Hash        |
+          |                                                     |
+          |                           |                         |
+          |        { token }          |                         |
+          |<--------------------------|                         |
+          |                           |                         |
+-----------------------------------------------------------------
+
